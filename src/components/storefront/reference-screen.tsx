@@ -276,7 +276,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 items-start">
 
-<div className="lg:col-span-5 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker-lg collection-product" data-product-card="0" hidden={filter !== "ALL SETS" && filter !== products[0].category}>
+<div className="lg:col-span-5 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker-lg collection-product" data-product-card="0" hidden={filter !== "ALL SETS" && filter !== products[0]?.category}>
 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-brandBlush mb-4 group">
 <img alt="Liquid Chrome Siren Nails" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb2PnilTaEeFKccfwKkFAviVCFz2jrPvQVORaFQ6qP-R6xiaocfoeVvDk0hQH2ljfyifj8VXTUqS6YZxC7aBEO50beiyhuJp3RbHUAKezj9xrZOmZxowzgQZ4yT2LizLPOFCGrV4tf317bVEjXnqnnkVskhKoue03KYGhG3CjFbLbbBqykBwh4fmYfBWaJHQaaUNFo-OTRFGtUABlQIciF5xRq_HEgY8tFsXD_vpNSWBJoXWO-UcXDOQ" />
 <span className="absolute top-3 left-3 bg-card/95 text-brandBlue text-[11px] font-bold px-3 py-1 rounded-full border border-brandBlue">{"\n                BESTSELLER\n              "}</span>
@@ -291,7 +291,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <Button className="mt-4 w-full bg-brandBlue text-primary-foreground font-bold text-xs py-3 rounded-full hover:bg-brandRose transition-colors" data-product="0" onClick={() => onAdd(0)} variant="reference" size="reference">{"\n              ADD TO BAG 🛍️\n            "}</Button>
 <Button variant="reference" size="reference" className="product-heart" aria-label={`Save LIQUID CHROME SIREN`} onClick={() => onSave(0)}>{saved.includes(0) ? "♥" : "♡"}</Button></div>
 
-<div className="lg:col-span-4 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker rotate-[1deg] hover:rotate-0 transition-transform collection-product" data-product-card="1" hidden={filter !== "ALL SETS" && filter !== products[1].category}>
+<div className="lg:col-span-4 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker rotate-[1deg] hover:rotate-0 transition-transform collection-product" data-product-card="1" hidden={filter !== "ALL SETS" && filter !== products[1]?.category}>
 <div className="relative rounded-2xl overflow-hidden aspect-square bg-pink-50 mb-4 group">
 <img alt="Strawberry Milk Tartan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZVl0gbApkWsj3BHy2Je9d_pV_KSRs90Q6fgkyKE8lB2gO9HONHHJypzk_t8hZzSf_GtPNOu8EjSzSuFIy67miKJyAkCBbSHdMCh1dwTH70BO-iNVZWanH2Mh25ikFaXRG2GRd2yFoXmDSgdCefOCZwDJ6MeTWQZ9JBbr2lQ8tVzwwWaJFxop57hFj90yESHfJ3NYoWX89VHfAKG2sovt_iyBpeiwA-dx0kBX837UgldLo4CkEfcNViA" />
 <span className="absolute bottom-3 left-3 bg-brandBlush text-brandBlue text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-brandBlue">{"\n                🎀 Hand-drawn Plaid\n              "}</span>
@@ -306,7 +306,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <Button className="mt-4 w-full bg-brandSoftWhite text-brandBlue border-2 border-brandBlue font-bold text-xs py-2.5 rounded-full hover:bg-brandBlush transition-colors" data-product="1" onClick={() => onAdd(1)} variant="reference" size="reference">{"\n              ADD TO BAG\n            "}</Button>
 <Button variant="reference" size="reference" className="product-heart" aria-label={`Save STRAWBERRY MILK TARTAN`} onClick={() => onSave(1)}>{saved.includes(1) ? "♥" : "♡"}</Button></div>
 
-<div className="lg:col-span-3 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker rotate-[-1.5deg] hover:rotate-0 transition-transform collection-product" data-product-card="2" hidden={filter !== "ALL SETS" && filter !== products[2].category}>
+<div className="lg:col-span-3 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker rotate-[-1.5deg] hover:rotate-0 transition-transform collection-product" data-product-card="2" hidden={filter !== "ALL SETS" && filter !== products[2]?.category}>
 <div className="relative rounded-2xl overflow-hidden aspect-square bg-blue-50 mb-4 group">
 <img alt="Gothic Celestial Eye" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-4U75usVPJcyGozt6wSzdPkwB42jycBkloAbeekYfB5XohbBq5svfDVs4uez1PEQFyNOEfLjM79O5Xl2r5K3iaKPZZvS5x0MmQZYXg-ZWWvY5h3sRi6WtjmfebmO4-tFHBGmpcL0lojxCc3ZnTBGH3FiPhk4N0dSoFyghRXEN8yuwk0o7Eue0DFY9lY510pfBl-Wknohlpt7O_KxUz_6EhXcTQ91CSO-2fTFLe2Jl-IDjsNu2I7-EYQ" />
 <span className="absolute top-3 right-3 bg-brandBlue text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full">{"\n                👁️ Signature Art\n              "}</span>
@@ -326,7 +326,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <div className="relative rounded-2xl overflow-hidden w-full sm:w-44 aspect-square bg-teal-50 flex-shrink-0 group">
 <img alt="Ocean Glass Mermaid Nails" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBd4AHn9HS_fWBfjQs5p3WOzxN-PKrUfPS-wJNbtLYOVo52bgfTGcZEdF4BTsfM_blI6ATDXLXc-vUsx2AXun9aukoazqK3ql034XwqG51npOTVqqG-AmOAlLr-NDKqgjHXRP-OduGsJdUwikrQ9zdo_xMG7amxzIsoaB8ZWWibUWiDaYTLXFU3laPEyWRqxL04dsTpX4uqkX9i29vGkefz9dIsn1K8g86OMEGwwuXlYNb_PqDNSgFMw" />
 </div>
-<div className="space-y-2 w-full collection-product" data-product-card="3" hidden={filter !== "ALL SETS" && filter !== products[3].category}>
+<div className="space-y-2 w-full collection-product" data-product-card="3" hidden={filter !== "ALL SETS" && filter !== products[3]?.category}>
 <span className="inline-block bg-teal-50 text-teal-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-teal-200">{"\n                  Sea Glass Aurora\n                "}</span>
 <h4 className="font-display text-lg text-brandBlue">{"OCEAN GLASS MERMAID"}</h4>
 <p className="font-body text-xs text-gray-600">{"Turquoise stones, liquid gold cages, opalescent chrome base."}</p>
@@ -343,7 +343,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <div className="relative rounded-2xl overflow-hidden w-full sm:w-44 aspect-square bg-neutral-100 flex-shrink-0 group">
 <img alt="Cyber Punkette Nails" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf1mZY5CSwl8r3aKEbvf9dyyVOpanSETWomkWeA5T63NBRjmsbCZcy9QtrFfDY88G5BUZdSUbZVRoOI4Rn5Hp1n1InBY4qaaCM6q6yIxyT3TJBpg1SXpsHU54D8IFcjU_z1hUpubtmV-GBBzAvw9jIftTQplDhQRarMuqKdqU8CJjypqePoAEiJ-bAZ29kJiBF3SGKmVU1oZoCsplAM7kWwrKg7N5J5BtX5XFO-zhxuWqslvc1yZ65HA" />
 </div>
-<div className="space-y-2 w-full collection-product" data-product-card="4" hidden={filter !== "ALL SETS" && filter !== products[4].category}>
+<div className="space-y-2 w-full collection-product" data-product-card="4" hidden={filter !== "ALL SETS" && filter !== products[4]?.category}>
 <span className="inline-block bg-secondary text-brandRose text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-rose-200">{"\n                  Bloody Spikes & Crosses\n                "}</span>
 <h4 className="font-display text-lg text-brandBlue">{"CYBER PUNKETTE"}</h4>
 <p className="font-body text-xs text-gray-600">{"Black French tip gradient with 3D sculpted thorn bands & crimson aura."}</p>
@@ -453,7 +453,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <div className="absolute inset-0 bg-gingham-dense opacity-40"></div>
 
 <div className="absolute top-8 left-12 hidden md:block animate-float-slow text-4xl">{"💅"}</div>
-<div className="absolute bottom-8 right-12 hidden md:block animate-float-slow text-4xl" className="float-delayed">{"🎀"}</div>
+<div className="absolute bottom-8 right-12 hidden md:block animate-float-slow text-4xl float-delayed">{"🎀"}</div>
 <div className="absolute top-1/2 left-1/4 hidden lg:block animate-wiggle text-2xl">{"✨"}</div>
 <div className="absolute top-1/3 right-1/4 hidden lg:block animate-wiggle text-3xl">{"🌸"}</div>
 <div className="max-w-4xl mx-auto px-4 relative z-10 space-y-6">
