@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep supplied screen markup in a presentation component with shopping interactions managed by the index route, so reference design stays separate from session UI state.
+- Define reference colors, patterns, fonts, and sticker shadows in src/styles.css and use semantic tokens throughout the screen.
