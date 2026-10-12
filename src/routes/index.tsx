@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ReferenceScreen } from "@/components/storefront/reference-screen";
 import { products } from "@/components/storefront/products";
+import { BookingAndCustom } from "@/components/storefront/booking-and-custom";
 type BagItem = { id: number; size: string; quantity: number };
 export const Route = createFileRoute("/")({
   component: Index,
@@ -47,7 +48,7 @@ function Index() {
   const searchResults = products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
   const total = bag.reduce((sum, item) => sum + (products.find(product => product.id === item.id)?.price ?? 0) * item.quantity, 0);
   return <>
-    <ReferenceScreen filter={filter} saved={saved} bagCount={bag.reduce((sum, item) => sum + item.quantity, 0)} onFilter={setFilter} onAdd={add} onSave={id => setSaved(current => current.includes(id) ? current.filter(value => value !== id) : [...current, id])} onSize={(id, size) => setSizes(current => ({...current, [id]: size}))} onPanel={setPanel} onNewsletter={newsletter} />
+    <ReferenceScreen extra={<BookingAndCustom />} filter={filter} saved={saved} bagCount={bag.reduce((sum, item) => sum + item.quantity, 0)} onFilter={setFilter} onAdd={add} onSave={id => setSaved(current => current.includes(id) ? current.filter(value => value !== id) : [...current, id])} onSize={(id, size) => setSizes(current => ({...current, [id]: size}))} onPanel={setPanel} onNewsletter={newsletter} />
     <Dialog open={Boolean(panel)} onOpenChange={open => { if (!open) setPanel(""); }}>
       <DialogContent className="shop-modal">
         <DialogTitle>{panel === "bag" ? "YOUR BAG 🛍️" : panel === "search" ? "FIND YOUR KLAWS" : panel === "wishlist" ? "YOUR FAVOURITES ♡" : "ORDER DETAILS"}</DialogTitle>

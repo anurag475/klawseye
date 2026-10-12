@@ -1,8 +1,8 @@
-import type { FormEvent } from "react";
+import type { FormEvent, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { products } from "./products";
-type Props = { filter: string; saved: number[]; bagCount: number; onFilter: (value: string) => void; onAdd: (id: number) => void; onSave: (id: number) => void; onSize: (id: number, size: string) => void; onPanel: (panel: string) => void; onNewsletter: (event: FormEvent<HTMLFormElement>) => void; };
-export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSave, onSize, onPanel, onNewsletter}: Props) { return <div className="reference-screen">
+type Props = { extra?: ReactNode; filter: string; saved: number[]; bagCount: number; onFilter: (value: string) => void; onAdd: (id: number) => void; onSave: (id: number) => void; onSize: (id: number, size: string) => void; onPanel: (panel: string) => void; onNewsletter: (event: FormEvent<HTMLFormElement>) => void; };
+export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd, onSave, onSize, onPanel, onNewsletter}: Props) { return <div className="reference-screen">
 
 <div className="relative overflow-hidden bg-brandBlue text-primary-foreground py-2 border-b-2 border-brandBlue z-50">
 <div className="flex whitespace-nowrap animate-marquee font-body font-semibold tracking-normal text-xs uppercase items-center">
@@ -785,6 +785,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 </section>
 
+{extra}
 </main>
 
 <footer className="bg-brandSoftWhite text-brandDark border-t-2 border-brandBlue pt-16 pb-12" data-purpose="page-footer">
