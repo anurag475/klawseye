@@ -193,7 +193,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 </div>
 
-<div className="relative w-full sm:w-56 h-56 rounded-2xl overflow-hidden border-2 border-brandBlue bg-pink-50 flex-shrink-0">
+<div className="relative w-full sm:w-56 h-56 rounded-2xl overflow-hidden border-2 border-brandBlue bg-secondary flex-shrink-0">
 <img alt="Ready to ship luxury press on nails set" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdmpnZEhUhFd029ypJZ0uho0j3R_imSqMB50GUg8FGpLPKOBRBKvI26u2bavTTCUub1riNSoAGHUKkMRROA9ZxjITqX-uGLGnzOokhn4yADmGCsl3GkQ62xXOPBI8XW0k-pcHkiFb_83WHenjiz7SFu0C_T-L_50P-tO-KJfv3Nw6ZFEEMpVJLDI0dB1dcc6cMK4_ABmZWuEvfebclr9lC3FPBVDgbCzZkhVPNakuyQ5VbfaZQwndnjQ" />
 <div className="absolute top-2 right-2 bg-card/95 px-2 py-0.5 rounded-full text-[11px] font-bold text-brandBlue border border-brandBlue">{"\n                  Ready in 24h\n                "}</div>
 </div>
@@ -221,9 +221,9 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 <div className="mt-6 flex items-center gap-3">
 <div className="flex -space-x-2">
-<span className="w-8 h-8 rounded-full bg-brandBlush border-2 border-white flex items-center justify-center text-xs">{"💅"}</span>
-<span className="w-8 h-8 rounded-full bg-pink-200 border-2 border-white flex items-center justify-center text-xs">{"👁️"}</span>
-<span className="w-8 h-8 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-xs">{"✨"}</span>
+<span className="w-8 h-8 rounded-full bg-brandBlush border-2 border-card flex items-center justify-center text-xs">{"💅"}</span>
+<span className="w-8 h-8 rounded-full bg-brandBlush border-2 border-card flex items-center justify-center text-xs">{"👁️"}</span>
+<span className="w-8 h-8 rounded-full bg-studio border-2 border-card flex items-center justify-center text-xs">{"✨"}</span>
 </div>
 <a className="inline-flex items-center gap-1 font-body font-bold text-sm text-brandBlue hover:text-brandRose ml-auto" href="#services">
 <span >{"BOOK APPOINTMENT"}</span>
@@ -292,7 +292,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <Button variant="reference" size="reference" className="product-heart" aria-label={`Save LIQUID CHROME SIREN`} onClick={() => onSave(0)}>{saved.includes(0) ? "♥" : "♡"}</Button></div>
 
 <div className="lg:col-span-4 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker rotate-[1deg] hover:rotate-0 transition-transform collection-product" data-product-card="1" hidden={filter !== "ALL SETS" && filter !== products[1]?.category}>
-<div className="relative rounded-2xl overflow-hidden aspect-square bg-pink-50 mb-4 group">
+<div className="relative rounded-2xl overflow-hidden aspect-square bg-secondary mb-4 group">
 <img alt="Strawberry Milk Tartan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZVl0gbApkWsj3BHy2Je9d_pV_KSRs90Q6fgkyKE8lB2gO9HONHHJypzk_t8hZzSf_GtPNOu8EjSzSuFIy67miKJyAkCBbSHdMCh1dwTH70BO-iNVZWanH2Mh25ikFaXRG2GRd2yFoXmDSgdCefOCZwDJ6MeTWQZ9JBbr2lQ8tVzwwWaJFxop57hFj90yESHfJ3NYoWX89VHfAKG2sovt_iyBpeiwA-dx0kBX837UgldLo4CkEfcNViA" />
 <span className="absolute bottom-3 left-3 bg-brandBlush text-brandBlue text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-brandBlue">{"\n                🎀 Hand-drawn Plaid\n              "}</span>
 </div>
@@ -307,7 +307,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <Button variant="reference" size="reference" className="product-heart" aria-label={`Save STRAWBERRY MILK TARTAN`} onClick={() => onSave(1)}>{saved.includes(1) ? "♥" : "♡"}</Button></div>
 
 <div className="lg:col-span-3 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker rotate-[-1.5deg] hover:rotate-0 transition-transform collection-product" data-product-card="2" hidden={filter !== "ALL SETS" && filter !== products[2]?.category}>
-<div className="relative rounded-2xl overflow-hidden aspect-square bg-blue-50 mb-4 group">
+<div className="relative rounded-2xl overflow-hidden aspect-square bg-studio mb-4 group">
 <img alt="Gothic Celestial Eye" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-4U75usVPJcyGozt6wSzdPkwB42jycBkloAbeekYfB5XohbBq5svfDVs4uez1PEQFyNOEfLjM79O5Xl2r5K3iaKPZZvS5x0MmQZYXg-ZWWvY5h3sRi6WtjmfebmO4-tFHBGmpcL0lojxCc3ZnTBGH3FiPhk4N0dSoFyghRXEN8yuwk0o7Eue0DFY9lY510pfBl-Wknohlpt7O_KxUz_6EhXcTQ91CSO-2fTFLe2Jl-IDjsNu2I7-EYQ" />
 <span className="absolute top-3 right-3 bg-brandBlue text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full">{"\n                👁️ Signature Art\n              "}</span>
 </div>
@@ -321,15 +321,15 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <Button className="mt-4 w-full bg-brandSoftWhite text-brandBlue border-2 border-brandBlue font-bold text-xs py-2.5 rounded-full hover:bg-brandBlush transition-colors" data-product="2" onClick={() => onAdd(2)} variant="reference" size="reference">{"\n              ADD TO BAG\n            "}</Button>
 <Button variant="reference" size="reference" className="product-heart" aria-label={`Save GOTHIC CELESTIAL EYE`} onClick={() => onSave(2)}>{saved.includes(2) ? "♥" : "♡"}</Button></div>
 
-<div className="lg:col-span-6 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker">
+<div className="lg:col-span-6 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker" hidden={filter !== "ALL SETS" && filter !== products[3]?.category}>
 <div className="flex flex-col sm:flex-row gap-4 items-center">
-<div className="relative rounded-2xl overflow-hidden w-full sm:w-44 aspect-square bg-teal-50 flex-shrink-0 group">
+<div className="relative rounded-2xl overflow-hidden w-full sm:w-44 aspect-square bg-studio flex-shrink-0 group">
 <img alt="Ocean Glass Mermaid Nails" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBd4AHn9HS_fWBfjQs5p3WOzxN-PKrUfPS-wJNbtLYOVo52bgfTGcZEdF4BTsfM_blI6ATDXLXc-vUsx2AXun9aukoazqK3ql034XwqG51npOTVqqG-AmOAlLr-NDKqgjHXRP-OduGsJdUwikrQ9zdo_xMG7amxzIsoaB8ZWWibUWiDaYTLXFU3laPEyWRqxL04dsTpX4uqkX9i29vGkefz9dIsn1K8g86OMEGwwuXlYNb_PqDNSgFMw" />
 </div>
-<div className="space-y-2 w-full collection-product" data-product-card="3" hidden={filter !== "ALL SETS" && filter !== products[3]?.category}>
-<span className="inline-block bg-teal-50 text-teal-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-teal-200">{"\n                  Sea Glass Aurora\n                "}</span>
+<div className="space-y-2 w-full collection-product" data-product-card="3">
+<span className="inline-block bg-studio text-primary text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-brandGingham">{"\n                  Sea Glass Aurora\n                "}</span>
 <h4 className="font-display text-lg text-brandBlue">{"OCEAN GLASS MERMAID"}</h4>
-<p className="font-body text-xs text-gray-600">{"Turquoise stones, liquid gold cages, opalescent chrome base."}</p>
+<p className="font-body text-xs text-muted-foreground">{"Turquoise stones, liquid gold cages, opalescent chrome base."}</p>
 <div className="flex items-center justify-between pt-2">
 <span className="font-body font-bold text-base text-brandBlue">{"₹2,299"}</span>
 <Button className="bg-brandBlue text-primary-foreground font-bold text-xs px-4 py-2 rounded-full hover:bg-brandRose transition-colors" data-product="3" onClick={() => onAdd(3)} variant="reference" size="reference">{"\n                    ADD TO BAG\n                  "}</Button>
@@ -338,15 +338,15 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 </div>
 
-<div className="lg:col-span-6 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker">
+<div className="lg:col-span-6 bg-card p-4 rounded-3xl border-3 border-brandBlue shadow-sticker" hidden={filter !== "ALL SETS" && filter !== products[4]?.category}>
 <div className="flex flex-col sm:flex-row gap-4 items-center">
-<div className="relative rounded-2xl overflow-hidden w-full sm:w-44 aspect-square bg-neutral-100 flex-shrink-0 group">
+<div className="relative rounded-2xl overflow-hidden w-full sm:w-44 aspect-square bg-secondary flex-shrink-0 group">
 <img alt="Cyber Punkette Nails" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf1mZY5CSwl8r3aKEbvf9dyyVOpanSETWomkWeA5T63NBRjmsbCZcy9QtrFfDY88G5BUZdSUbZVRoOI4Rn5Hp1n1InBY4qaaCM6q6yIxyT3TJBpg1SXpsHU54D8IFcjU_z1hUpubtmV-GBBzAvw9jIftTQplDhQRarMuqKdqU8CJjypqePoAEiJ-bAZ29kJiBF3SGKmVU1oZoCsplAM7kWwrKg7N5J5BtX5XFO-zhxuWqslvc1yZ65HA" />
 </div>
-<div className="space-y-2 w-full collection-product" data-product-card="4" hidden={filter !== "ALL SETS" && filter !== products[4]?.category}>
-<span className="inline-block bg-secondary text-brandRose text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-rose-200">{"\n                  Bloody Spikes & Crosses\n                "}</span>
+<div className="space-y-2 w-full collection-product" data-product-card="4">
+<span className="inline-block bg-secondary text-brandRose text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-brandGingham">{"\n                  Bloody Spikes & Crosses\n                "}</span>
 <h4 className="font-display text-lg text-brandBlue">{"CYBER PUNKETTE"}</h4>
-<p className="font-body text-xs text-gray-600">{"Black French tip gradient with 3D sculpted thorn bands & crimson aura."}</p>
+<p className="font-body text-xs text-muted-foreground">{"Black French tip gradient with 3D sculpted thorn bands & crimson aura."}</p>
 <div className="flex items-center justify-between pt-2">
 <span className="font-body font-bold text-base text-brandBlue">{"₹1,999"}</span>
 <Button className="bg-brandBlue text-primary-foreground font-bold text-xs px-4 py-2 rounded-full hover:bg-brandRose transition-colors" data-product="4" onClick={() => onAdd(4)} variant="reference" size="reference">{"\n                    ADD TO BAG\n                  "}</Button>
@@ -378,21 +378,21 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 
 <div className="space-y-4">
-<div className="flex items-start gap-4 p-3 bg-pink-50/60 rounded-xl border border-brandGingham/40">
+<div className="flex items-start gap-4 p-3 bg-secondary/60 rounded-xl border border-brandGingham/40">
 <div className="w-8 h-8 rounded-full bg-brandBlue text-primary-foreground font-bold flex items-center justify-center text-sm flex-shrink-0">{"\n                    1\n                  "}</div>
 <div >
 <h5 className="font-bold text-sm text-brandBlue">{"Snap or Save Your Inspo"}</h5>
-<p className="text-xs text-gray-600">{"Send us screenshots from Pinterest, TikTok, or our Instagram feed."}</p>
+<p className="text-xs text-muted-foreground">{"Send us screenshots from Pinterest, TikTok, or our Instagram feed."}</p>
 </div>
 </div>
-<div className="flex items-start gap-4 p-3 bg-pink-50/60 rounded-xl border border-brandGingham/40">
+<div className="flex items-start gap-4 p-3 bg-secondary/60 rounded-xl border border-brandGingham/40">
 <div className="w-8 h-8 rounded-full bg-brandBlue text-primary-foreground font-bold flex items-center justify-center text-sm flex-shrink-0">{"\n                    2\n                  "}</div>
 <div >
 <h5 className="font-bold text-sm text-brandBlue">{"Measure With Sizing Coin"}</h5>
-<p className="text-xs text-gray-600">{"Place a 5-rupee coin next to your bare hand or order our ₹149 sizing kit."}</p>
+<p className="text-xs text-muted-foreground">{"Place a 5-rupee coin next to your bare hand or order our ₹149 sizing kit."}</p>
 </div>
 </div>
-<div className="flex items-start gap-4 p-3 bg-pink-50/60 rounded-xl border border-brandGingham/40">
+<div className="flex items-start gap-4 p-3 bg-secondary/60 rounded-xl border border-brandGingham/40">
 <div className="w-8 h-8 rounded-full bg-brandBlue text-primary-foreground font-bold flex items-center justify-center text-sm flex-shrink-0">{"\n                    3\n                  "}</div>
 <div >
 <h5 className="font-bold text-sm text-brandBlue">{"Pick Shape & Length"}</h5>
@@ -404,11 +404,11 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 </div>
 </div>
-<div className="flex items-start gap-4 p-3 bg-pink-50/60 rounded-xl border border-brandGingham/40">
+<div className="flex items-start gap-4 p-3 bg-secondary/60 rounded-xl border border-brandGingham/40">
 <div className="w-8 h-8 rounded-full bg-brandBlue text-primary-foreground font-bold flex items-center justify-center text-sm flex-shrink-0">{"\n                    4\n                  "}</div>
 <div >
 <h5 className="font-bold text-sm text-brandBlue">{"Handmade & Shipped Pan-India"}</h5>
-<p className="text-xs text-gray-600">{"Crafted with certified UV gel formulas and dispatched in 3–5 working days."}</p>
+<p className="text-xs text-muted-foreground">{"Crafted with certified UV gel formulas and dispatched in 3–5 working days."}</p>
 </div>
 </div>
 </div>
@@ -463,7 +463,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <div className="pt-4">
 <div className="inline-flex items-center gap-3 bg-card/90 backdrop-blur-sm border-2 border-brandBlue px-6 py-2.5 rounded-full shadow-sticker">
 <span className="text-brandRose font-bold font-display text-sm">{"#KLAWSEYE"}</span>
-<span className="text-gray-400">{"·"}</span>
+<span className="text-muted-foreground">{"·"}</span>
 <span className="font-body text-xs font-semibold text-brandBlue tracking-normal">{"WEARABLE ATTITUDE FOR YOUR FINGERTIPS"}</span>
 </div>
 </div>
@@ -482,7 +482,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
 <div className="bg-card rounded-3xl p-4 border-3 border-brandBlue shadow-sticker hover:-translate-y-1 transition-transform group" data-product-card="5">
-<div className="relative aspect-square rounded-2xl overflow-hidden bg-pink-50 mb-4">
+<div className="relative aspect-square rounded-2xl overflow-hidden bg-secondary mb-4">
 <img alt="Cherub Tears Press On Set" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUOmBKX6vGPEOuKgA6VA92oFYfQ8yGu-qxLXFde2RuBj50guMY9oms2qAK0Dey-eZkZkpMAnEt4HWexLc8WQWN7-Y-U4jLqWpnFb-DkKAMkEvIM2KtwlNtogLiOpNuIQn-rTZgkCCj1MeEP0l_ep9z0nz5YWyr2VaB2IjBUtbbB0h2rwfbdZ1w3fDl0QlJusMqoXuS5YgjEoEwgImoSuBaWgkzwCB_7WAZOJTWfDqQlEk8A_wNUFg_Vg" />
 <span className="absolute top-3 left-3 bg-card text-brandBlue text-[11px] font-bold px-2.5 py-1 rounded-full border border-brandBlue shadow-sm">{"\n                🎀 Pearl Drop\n              "}</span>
 </div>
@@ -650,7 +650,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 <div className="text-right">
 <span className="font-bold text-sm text-brandBlue">{"₹1,800"}</span>
-<span className="block text-[10px] text-gray-400">{"90 mins"}</span>
+<span className="block text-[10px] text-muted-foreground">{"90 mins"}</span>
 </div>
 </div>
 
@@ -661,7 +661,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 <div className="text-right">
 <span className="font-bold text-sm text-brandBlue">{"₹3,200"}</span>
-<span className="block text-[10px] text-gray-400">{"140 mins"}</span>
+<span className="block text-[10px] text-muted-foreground">{"140 mins"}</span>
 </div>
 </div>
 
@@ -672,7 +672,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 <div className="text-right">
 <span className="font-bold text-sm text-brandBlue">{"₹2,400"}</span>
-<span className="block text-[10px] text-gray-400">{"120 mins"}</span>
+<span className="block text-[10px] text-muted-foreground">{"120 mins"}</span>
 </div>
 </div>
 
@@ -683,11 +683,11 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 </div>
 <div className="text-right">
 <span className="font-bold text-sm text-brandBlue">{"₹499"}</span>
-<span className="block text-[10px] text-gray-400">{"30 mins"}</span>
+<span className="block text-[10px] text-muted-foreground">{"30 mins"}</span>
 </div>
 </div>
 </div>
-<p className="text-xs text-gray-400 text-center mt-6">{"\n              Prepaid advance required to hold slot. Exact studio address sent via WhatsApp upon confirmation.\n            "}</p>
+<p className="text-xs text-muted-foreground text-center mt-6">{"\n              Prepaid advance required to hold slot. Exact studio address sent via WhatsApp upon confirmation.\n            "}</p>
 </div>
 </div>
 </div>
@@ -706,7 +706,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 
 <div className="bg-card p-3.5 rounded-2xl border-3 border-brandBlue shadow-sticker rotate-[-1.5deg] hover:rotate-0 transition-all duration-300">
 <div className="washi-tape-pink w-20 h-5 absolute -top-2.5 left-1/2 -translate-x-1/2"></div>
-<div className="aspect-square rounded-xl overflow-hidden bg-neutral-100 mb-3">
+<div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-3">
 <img alt="Client selfie wearing klawseye nails" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQxZSU57e5j71InVcVde9JnYZTACyQ2fvB3NT5FoAlZBu7tv07BfT_w9o1cphTl-efL1bWs01I2RLHPT37E0m9FO3FZHHzhgoXz7ffBwLCUCMXqz2F3winqdWIMs3XGUGP6_6sEDjcqLcsFopeXjETa5u3XfhFb-YXNJl7xPKXGeoLGEGzxU-kRL63hM5LZXxxP81HfXWmzMQDYKEy3KpVdvxQs9ga72lA0mD9z72gIDInpEgHsydmcg" />
 </div>
 <div className="space-y-1">
@@ -714,12 +714,12 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <span className="font-bold text-xs text-brandBlue">{"@ananya_v"}</span>
 <span className="text-brandRose text-xs">{"★★★★★"}</span>
 </div>
-<p className="font-handwritten text-xs text-gray-700 font-semibold leading-relaxed">{"\n                \"Lasted 3 straight weeks without lifting! Survived a music festival with zero loss 🥹\"\n              "}</p>
+<p className="font-handwritten text-xs text-copy font-semibold leading-relaxed">{"\n                \"Lasted 3 straight weeks without lifting! Survived a music festival with zero loss 🥹\"\n              "}</p>
 </div>
 </div>
 
 <div className="bg-card p-3.5 rounded-2xl border-3 border-brandBlue shadow-sticker rotate-[1.5deg] hover:rotate-0 transition-all duration-300">
-<div className="aspect-square rounded-xl overflow-hidden bg-neutral-100 mb-3">
+<div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-3">
 <img alt="Client showing custom nail set" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx3oYM7EziVUY_XmvkX_PFz8SlEDEBhSP9On2EyeLxgZiS4jx5qWgB4ZSuAJqRGhWBg5_RfBW41J2e7KcRxjjt8L9t5ohbRI1zwIQiODH0rDdllVog9TE3RFJe0bllLlLX6Be4YGBU6wqkPHMdudAz1o27ehs1vXCB9sy39oUySZSp_qKJM46MStsT5oEqeaGfuIkueHSmMX1fTXZJpA-_wqPByGYYsuJeNpTV5LQmDK-gaPbCaWhhdQ" />
 </div>
 <div className="space-y-1">
@@ -727,12 +727,12 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <span className="font-bold text-xs text-brandBlue">{"@tanya.sharma"}</span>
 <span className="text-brandRose text-xs">{"★★★★★"}</span>
 </div>
-<p className="font-handwritten text-xs text-gray-700 font-semibold leading-relaxed">{"\n                \"Got literally 50 compliments on my flight to Goa. Everyone thought they were salon sculpts.\"\n              "}</p>
+<p className="font-handwritten text-xs text-copy font-semibold leading-relaxed">{"\n                \"Got literally 50 compliments on my flight to Goa. Everyone thought they were salon sculpts.\"\n              "}</p>
 </div>
 </div>
 
 <div className="bg-card p-3.5 rounded-2xl border-3 border-brandBlue shadow-sticker rotate-[-1deg] hover:rotate-0 transition-all duration-300">
-<div className="aspect-square rounded-xl overflow-hidden bg-neutral-100 mb-3">
+<div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-3">
 <img alt="Customer wearing eye amulet press ons" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCI6JDCfCPDWqFmIBRRlu7m-TB4N0-9rh7OhSGSOMsMTcC7qkCDXlG6AJQAK1VaM8WgjYMe_zzTCLBsqRAwSXbffZoMQcsn_GnquBIP2_BXNvXl4lKxsCE53Wyrg81wc339xEObBjVv-oaXU_tRXAv8AjGPAMeB-eaptansVcOzB5dkNPv4-ol6brbvSWInbe8sSzEqE_3PBZ6AuUKg92HxWsZG9bsM6EXrO1gFBkq4Dc84n2LWMPOoQ" />
 </div>
 <div className="space-y-1">
@@ -740,12 +740,12 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <span className="font-bold text-xs text-brandBlue">{"@zoyaaa.k"}</span>
 <span className="text-brandRose text-xs">{"★★★★★"}</span>
 </div>
-<p className="font-handwritten text-xs text-gray-700 font-semibold leading-relaxed">{"\n                \"The 3D detailing is insane IRL. I can't stop staring at the eyeball charm 👁️💖\"\n              "}</p>
+<p className="font-handwritten text-xs text-copy font-semibold leading-relaxed">{"\n                \"The 3D detailing is insane IRL. I can't stop staring at the eyeball charm 👁️💖\"\n              "}</p>
 </div>
 </div>
 
 <div className="bg-card p-3.5 rounded-2xl border-3 border-brandBlue shadow-sticker rotate-[2deg] hover:rotate-0 transition-all duration-300">
-<div className="aspect-square rounded-xl overflow-hidden bg-neutral-100 mb-3">
+<div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-3">
 <img alt="Customer with coquette nails" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5hpvseofIkRafGXQbf40VSqPg40WQtXDg4SiIpDCJeOGGT3j_-iPpk85_HhQu1vAw3ChRrlc8OVVcIMTjgwzJrQPiuk_ZU0WUZWQJz1UPkSAwgKNQQ92cXUzqwx7oCf6Cak1q4AGcihiRvwLMgtPn5CGFl05V6eE44F-hN3FMgw7TTszbcZakFmWHyyVxPHCft2xQHkVVr1c4L1UNKsQlUmKhDn6-y5ARMiqkcT4yFXcVwN7THs0E6w" />
 </div>
 <div className="space-y-1">
@@ -753,7 +753,7 @@ export function ReferenceScreen({filter, saved, bagCount, onFilter, onAdd, onSav
 <span className="font-bold text-xs text-brandBlue">{"@ria_mehra"}</span>
 <span className="text-brandRose text-xs">{"★★★★★"}</span>
 </div>
-<p className="font-handwritten text-xs text-gray-700 font-semibold leading-relaxed">{"\n                \"The glue tabs included were so strong. Pop on and ready in 8 minutes!\"\n              "}</p>
+<p className="font-handwritten text-xs text-copy font-semibold leading-relaxed">{"\n                \"The glue tabs included were so strong. Pop on and ready in 8 minutes!\"\n              "}</p>
 </div>
 </div>
 </div>

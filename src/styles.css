@@ -245,3 +245,7 @@ section[id] { scroll-margin-top: 110px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+.bg-gingham-dense {
+ background-image: repeating-linear-gradient(0deg, oklch(0.792 0.067 21 / 45%) 0px, oklch(0.792 0.067 21 / 45%) 14px, transparent 14px, transparent 28px), repeating-linear-gradient(90deg, oklch(0.792 0.067 21 / 45%) 0px, oklch(0.792 0.067 21 / 45%) 14px, transparent 14px, transparent 28px);
+}
+[data-purpose="hero-editorial"] .top-16.right-16 { z-index: 30; top: 12px; }
