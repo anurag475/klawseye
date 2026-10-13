@@ -16,8 +16,8 @@ export const Route = createFileRoute("/")({
     { property: "og:description", content: "Discover reusable handmade press-ons, bespoke fantasy nails, and Delhi-NCR studio services." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-    { property: "og:image", content: "https://lh3.googleusercontent.com/aida-public/AB6AXuDehO8ctqqKbOVFHOTCKjUfppQIYHLBmSQVmXcYmcXkWVT7QIBbgNKXhIVYkCvjVZ-L7hkPuP_u4uhSv2tcsR6UXM9PSjKoleolEE5T8KVDjS3Rc21MT3wW6rZk43PjWAhdAprNGWLAzz73j1lHdofkc87MYHWNetB-oKSw4FgL7N5xjeRfz_bLeh_dS3OFHCX461eyi1MQH1FbpfyT0H21PlS0Egt7biVfyhm4wUOBLrOF_LMx4EO2Xw" },
-    { name: "twitter:image", content: "https://lh3.googleusercontent.com/aida-public/AB6AXuDehO8ctqqKbOVFHOTCKjUfppQIYHLBmSQVmXcYmcXkWVT7QIBbgNKXhIVYkCvjVZ-L7hkPuP_u4uhSv2tcsR6UXM9PSjKoleolEE5T8KVDjS3Rc21MT3wW6rZk43PjWAhdAprNGWLAzz73j1lHdofkc87MYHWNetB-oKSw4FgL7N5xjeRfz_bLeh_dS3OFHCX461eyi1MQH1FbpfyT0H21PlS0Egt7biVfyhm4wUOBLrOF_LMx4EO2Xw" },
+    { property: "og:image", content: "/WhatsApp Image 2026-10-13 at 1.39.19 PM.jpeg" },
+    { name: "twitter:image", content: "/WhatsApp Image 2026-10-13 at 1.39.19 PM.jpeg" },
   ] }),
 });
 function Index() {

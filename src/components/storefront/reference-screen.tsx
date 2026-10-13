@@ -1,6 +1,19 @@
 import type { FormEvent, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { products } from "./products";
+
+const studioPhotos = [
+  "/WhatsApp Image 2026-10-13 at 1.39.19 PM (1).jpeg",
+  "/WhatsApp Image 2026-10-13 at 1.39.19 PM.jpeg",
+  "/WhatsApp Image 2026-10-13 at 1.40.11 PM (1).jpeg",
+  "/WhatsApp Image 2026-10-13 at 1.40.11 PM.jpeg",
+  "/WhatsApp Image 2026-10-13 at 1.41.18 PM.jpeg",
+  "/WhatsApp Image 2026-10-13 at 1.49.46 PM.jpeg",
+  "/WhatsApp Image 2026-10-13 at 1.50.12 PM.jpeg",
+  "/WhatsApp Image 2026-10-13 at 1.51.19 PM.jpeg",
+  "/WhatsApp Image 2026-10-13 at 12.13.04 AM.jpeg",
+];
+
 type Props = { extra?: ReactNode; filter: string; saved: number[]; bagCount: number; onFilter: (value: string) => void; onAdd: (id: number) => void; onSave: (id: number) => void; onSize: (id: number, size: string) => void; onPanel: (panel: string) => void; onNewsletter: (event: FormEvent<HTMLFormElement>) => void; };
 export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd, onSave, onSize, onPanel, onNewsletter}: Props) { return <div className="reference-screen">
 
@@ -26,7 +39,7 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 
 <a className="flex items-center gap-3 group" href="#" title="KLAWSEYE Homepage">
 <div className="relative transition-transform duration-300 group-hover:scale-105">
-<img alt="KLAWSEYE nails & lashes" className="h-16 w-auto object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZxUaxzmoVW5n506Wm_hIKZCCzvKnh2Qf4si_-zcTfVziYG6YlZTTcTVeJ76EG376HZtQv_EzEzccGKZ-eNBbKlL3VTSadwojyU_kDpiVlqFNHyt--OLCbKS_4iuzt5qhK6U19lUbBJBhDpuPkz-DQ7255EI1PDg-cTMS9u6yE7MYh9heyxEvw71ScLPC6puAwxYg1xLFH4ntR8p1SYNeA4xM5ryz_0ta91XJsc2EerwqUA-SKWRUAGt19BXLxdlr9hr8" />
+<img alt="KLAWSEYE nails & lashes" className="h-16 w-16 object-contain drop-shadow-sm" src="/WhatsApp Image 2026-10-13 at 3.32.28 PM.jpeg" />
 </div>
 </a>
 
@@ -119,7 +132,7 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 
 <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-28 h-7 washi-tape-pink z-30 opacity-90"></div>
 <div className="relative overflow-hidden rounded-xl aspect-[4/5] bg-brandBlush">
-<img alt="High-fashion 3D Chrome Jeweled Press On Nails" className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDehO8ctqqKbOVFHOTCKjUfppQIYHLBmSQVmXcYmcXkWVT7QIBbgNKXhIVYkCvjVZ-L7hkPuP_u4uhSv2tcsR6UXM9PSjKoleolEE5T8KVDjS3Rc21MT3wW6rZk43PjWAhdAprNGWLAzz73j1lHdofkc87MYHWNetB-oKSw4FgL7N5xjeRfz_bLeh_dS3OFHCX461eyi1MQH1FbpfyT0H21PlS0Egt7biVfyhm4wUOBLrOF_LMx4EO2Xw" />
+<img alt="KLAWSEYE customer showing a custom press-on manicure" className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" src="/WhatsAp8 PM.jpeg" />
 <div className="absolute bottom-3 left-3 bg-brandBlue/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-bold font-body">{"\n                  ✨ Hand-sculpted Chrome & Gems\n                "}</div>
 </div>
 
@@ -134,14 +147,14 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 
 <div className="absolute -bottom-6 -left-4 sm:-left-6 w-44 sm:w-52 bg-card p-2.5 rounded-xl border-3 border-brandBlue shadow-sticker rotate-[7deg] hover:rotate-3 transition-transform duration-300 z-20">
 <div className="w-full aspect-square rounded-lg overflow-hidden bg-brandBlush">
-<img alt="Macro Nail Charms and Y2K Bow Details" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlPx3O06S_J4s__7CGvZOdd3pLbFhrei9xivERb-pYvgcneIEn-rzHSyzQmtYoYQ6NdO2_Vq2IWYRTbrBBoycddiJctLSVbMN9hCcNcV7maaPt8wMXKAFji5wqpcIBLNF44i1Er7CIBZFa8rUZVs4hcceY1o53S2qYthQiGjiqzO0W0a7Pdryk_rkwhXWs8XuEWvTgQy786osZ-MO3SHXT--9YDGz76jBYOnYvqivrWMG1ldD_EJ94pA" />
+<img alt="Macro Nail Charms and Y2K Bow Details" className="w-full h-full object-cover" src={studioPhotos[3]} />
 </div>
 <p className="font-handwritten text-brandBlue font-bold text-sm text-center pt-2">{"\n                real pearls & bows! 🎀\n              "}</p>
 </div>
 
 <div className="absolute -top-6 -right-2 sm:-right-4 w-40 sm:w-44 bg-card p-2 rounded-xl border-3 border-brandBlue shadow-sticker rotate-[9deg] hover:rotate-6 transition-transform duration-300 z-20 hidden sm:block">
 <div className="w-full aspect-square rounded-lg overflow-hidden bg-secondary">
-<img alt="Gothic Celestial Eye Nail Art" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy8DiwHHl5iP13Q5d0eU2XKgMmLnT7g1RxUpWgVsScX6O02Qz97sATgih821wBvp2Yl0R9ETs80ipI6FAtK7dfgyfVCShpX2FVnblodFVJQ0Bn2rDFV6J7p8JKLySoAAG6mfv2W56mZDfDdthKBFT3DkvGUN1DdNhqtIiwXb4VW9L0gWqCCuRjpv7TiOfeqcNRfXciwZgmMhfOxsETKL334Wj4eHcYwGYwiVR0odEy1HgEvKN6oRshzQ" />
+<img alt="Gothic Celestial Eye Nail Art" className="w-full h-full object-cover" src={studioPhotos[2]} />
 </div>
 <p className="font-handwritten text-brandRose font-bold text-xs text-center pt-1.5">{"\n                custom eye amulets 👁️✨\n              "}</p>
 </div>
@@ -194,7 +207,7 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 </div>
 
 <div className="relative w-full sm:w-56 h-56 rounded-2xl overflow-hidden border-2 border-brandBlue bg-secondary flex-shrink-0">
-<img alt="Ready to ship luxury press on nails set" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdmpnZEhUhFd029ypJZ0uho0j3R_imSqMB50GUg8FGpLPKOBRBKvI26u2bavTTCUub1riNSoAGHUKkMRROA9ZxjITqX-uGLGnzOokhn4yADmGCsl3GkQ62xXOPBI8XW0k-pcHkiFb_83WHenjiz7SFu0C_T-L_50P-tO-KJfv3Nw6ZFEEMpVJLDI0dB1dcc6cMK4_ABmZWuEvfebclr9lC3FPBVDgbCzZkhVPNakuyQ5VbfaZQwndnjQ" />
+<img alt="Ready to ship luxury press on nails set" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={studioPhotos[5]} />
 <div className="absolute top-2 right-2 bg-card/95 px-2 py-0.5 rounded-full text-[11px] font-bold text-brandBlue border border-brandBlue">{"\n                  Ready in 24h\n                "}</div>
 </div>
 </div>
@@ -707,7 +720,7 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 <div className="bg-card p-3.5 rounded-2xl border-3 border-brandBlue shadow-sticker rotate-[-1.5deg] hover:rotate-0 transition-all duration-300">
 <div className="washi-tape-pink w-20 h-5 absolute -top-2.5 left-1/2 -translate-x-1/2"></div>
 <div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-3">
-<img alt="Client selfie wearing klawseye nails" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQxZSU57e5j71InVcVde9JnYZTACyQ2fvB3NT5FoAlZBu7tv07BfT_w9o1cphTl-efL1bWs01I2RLHPT37E0m9FO3FZHHzhgoXz7ffBwLCUCMXqz2F3winqdWIMs3XGUGP6_6sEDjcqLcsFopeXjETa5u3XfhFb-YXNJl7xPKXGeoLGEGzxU-kRL63hM5LZXxxP81HfXWmzMQDYKEy3KpVdvxQs9ga72lA0mD9z72gIDInpEgHsydmcg" />
+<img alt="KLAWSEYE customer showing handmade press-on nail art" className="w-full h-full object-cover" src="/WhatsApp Image 2026-t 3.37.08 PM.jpeg" />
 </div>
 <div className="space-y-1">
 <div className="flex items-center justify-between">
@@ -720,7 +733,7 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 
 <div className="bg-card p-3.5 rounded-2xl border-3 border-brandBlue shadow-sticker rotate-[1.5deg] hover:rotate-0 transition-all duration-300">
 <div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-3">
-<img alt="Client showing custom nail set" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx3oYM7EziVUY_XmvkX_PFz8SlEDEBhSP9On2EyeLxgZiS4jx5qWgB4ZSuAJqRGhWBg5_RfBW41J2e7KcRxjjt8L9t5ohbRI1zwIQiODH0rDdllVog9TE3RFJe0bllLlLX6Be4YGBU6wqkPHMdudAz1o27ehs1vXCB9sy39oUySZSp_qKJM46MStsT5oEqeaGfuIkueHSmMX1fTXZJpA-_wqPByGYYsuJeNpTV5LQmDK-gaPbCaWhhdQ" />
+<img alt="KLAWSEYE customer showing a custom press-on manicure" className="w-full h-full object-cover" src="/WhatsAp8 PM.jpeg" />
 </div>
 <div className="space-y-1">
 <div className="flex items-center justify-between">
@@ -756,6 +769,16 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 <p className="font-handwritten text-xs text-copy font-semibold leading-relaxed">{"\n                \"The glue tabs included were so strong. Pop on and ready in 8 minutes!\"\n              "}</p>
 </div>
 </div>
+
+<div className="bg-card p-3.5 rounded-2xl border-3 border-brandBlue shadow-sticker rotate-[-1deg] hover:rotate-0 transition-all duration-300">
+<div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-3">
+<img alt="KLAWSEYE custom nail art lookbook featuring detailed red and black press-ons" className="w-full h-full object-cover" src="/WhatsApp 1.23 PM.jpeg" />
+</div>
+<div className="space-y-1">
+<span className="font-bold text-xs text-brandBlue">{"CUSTOM SET SPOTLIGHT"}</span>
+<p className="font-handwritten text-xs text-copy font-semibold leading-relaxed">{"Hand-finished details, made to match your moment."}</p>
+</div>
+</div>
 </div>
 <div className="text-center mt-12">
 <a className="inline-flex items-center gap-2 bg-brandBlue text-primary-foreground font-body font-bold text-sm px-7 py-3 rounded-full border-2 border-brandBlue shadow-sticker hover:bg-brandRose transition-colors" href="https://www.instagram.com/klawseye/" rel="noopener noreferrer" target="_blank">
@@ -769,13 +792,15 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 
 <section className="py-16 bg-gingham border-y-2 border-brandBlue relative" data-purpose="artist-recruitment" id="careers">
 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-<div className="bg-card rounded-3xl p-8 sm:p-12 border-4 border-brandBlue shadow-sticker-lg flex flex-col md:flex-row items-center justify-between gap-8">
-<div className="space-y-4 max-w-lg text-center md:text-left">
+<div className="relative overflow-hidden bg-card rounded-3xl p-8 sm:p-12 border-4 border-brandBlue shadow-sticker-lg flex flex-col md:flex-row items-center justify-between gap-8">
+<div aria-hidden="true" className="absolute inset-0 bg-cover bg-center opacity-50" style={{ backgroundImage: 'url("/WhatsApp Image 2026-10-13 at 1.51.19 PM.jpeg")' }}></div>
+<div aria-hidden="true" className="absolute inset-0 bg-card/40"></div>
+<div className="relative z-10 space-y-4 max-w-lg text-center md:text-left">
 <span className="inline-block bg-brandBlush text-brandBlue text-xs font-bold px-3 py-1 rounded-full border border-brandBlue">{"\n              WE ARE HIRING 👩‍🎨\n            "}</span>
 <h3 className="font-display text-3xl sm:text-4xl text-brandBlue leading-tight">{"\n              CREATIVE HANDS WANTED.\n            "}</h3>
 <p className="font-body text-copy text-base">{"\n              Love nail art, micro-painting, and turning Pinterest ideas into tiny works of art? Join our Delhi studio team as a freelance press-on designer or in-studio tech.\n            "}</p>
 </div>
-<div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<div className="relative z-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
 <a className="inline-flex justify-center items-center gap-2 bg-brandBlue text-primary-foreground font-body font-bold text-sm px-8 py-4 rounded-full border-2 border-brandBlue shadow-sticker hover:bg-brandRose transition-all" href="mailto:careers@klawseye.com">
 <span >{"JOIN OUR TEAM"}</span>
 <span >{"→"}</span>
@@ -794,7 +819,7 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 
 <div className="md:col-span-4 space-y-4">
 <a className="inline-block" href="#">
-<img alt="KLAWSEYE Logo" className="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZxUaxzmoVW5n506Wm_hIKZCCzvKnh2Qf4si_-zcTfVziYG6YlZTTcTVeJ76EG376HZtQv_EzEzccGKZ-eNBbKlL3VTSadwojyU_kDpiVlqFNHyt--OLCbKS_4iuzt5qhK6U19lUbBJBhDpuPkz-DQ7255EI1PDg-cTMS9u6yE7MYh9heyxEvw71ScLPC6puAwxYg1xLFH4ntR8p1SYNeA4xM5ryz_0ta91XJsc2EerwqUA-SKWRUAGt19BXLxdlr9hr8" />
+<img alt="KLAWSEYE Logo" className="h-16 w-16 object-contain" src="/WhatsApp Image 2026-10-13 at 3.32.28 PM.jpeg" />
 </a>
 <p className="font-body text-sm text-muted-foreground max-w-sm leading-relaxed">{"\n            Klaws that are uniquely yours. Certified Nail Tech crafting handmade luxury press-on sets, 3D fantasy nails, and wispy lashes in Delhi-NCR with pan-India delivery.\n          "}</p>
 <div className="flex items-center gap-3 pt-2">
