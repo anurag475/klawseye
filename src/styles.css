@@ -251,9 +251,9 @@ section[id] { scroll-margin-top: 110px; }
 [data-purpose="hero-editorial"] .top-16.right-16 { z-index: 30; top: 12px; }
 
 /* ---- Art-direction refinement layer ---- */
-h1, h2, h3, .font-display { text-wrap: balance; }
-p { text-wrap: pretty; }
-.hero-title { font-size: clamp(2.6rem, 6.4vw, 5.4rem); line-height: 0.98; }
+h1, h2, h3 { text-wrap-style: balance; }
+p { text-wrap-style: pretty; }
+.hero-title { font-size: clamp(2.6rem, 5.2vw, 4.4rem); line-height: 1; }
 .hero-indent { padding-left: clamp(1rem, 6vw, 4.5rem); }
 .hero-scribble { position: relative; display: inline-block; isolation: isolate; }
 .hero-scribble::after { content: ""; position: absolute; left: -4%; right: -4%; bottom: -0.08em; height: 0.28em; background: var(--brand-gingham); opacity: .55; z-index: -1; border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%; transform: rotate(-1.5deg); }
@@ -289,7 +289,7 @@ a.rounded-full:focus-visible, button:focus-visible { outline: 3px solid var(--br
   [data-purpose="hero-editorial"] .text-lg { font-size: 1rem; }
   [data-purpose="hero-editorial"] .flex-wrap > a { flex: 1 1 100%; justify-content: center; }
   [data-purpose="klawseye-destinations"] .grid > *, [data-purpose="community-reviews"] .grid > * { transform: none !important; }
-  section[data-purpose] { padding-top: 56px; padding-bottom: 56px; }
+  section[data-purpose]:not([data-purpose='marquee-ticker']) { padding-top: 56px; padding-bottom: 56px; }
   section[data-purpose] h2 { font-size: clamp(1.7rem, 8vw, 2.3rem); }
 }
 
@@ -304,7 +304,7 @@ a.rounded-full:focus-visible, button:focus-visible { outline: 3px solid var(--br
 .hero-title > span:nth-child(3) { animation-delay: .16s; }
 [data-purpose="hero-editorial"] .lg\:col-span-6 > p, [data-purpose="hero-editorial"] .lg\:col-span-6 > div { animation: rise-in .6s .2s ease-out both; }
 [data-purpose="hero-editorial"] .aspect-\[4\/5\] img { animation: photo-in 1s ease-out both; }
-[data-purpose="hero-editorial"] .absolute.hidden.lg\:block { translate: 0 calc(var(--hero-scroll, 0) * -0.12px); animation: var(--animate-float-slow); }
+[data-purpose="hero-editorial"] .absolute.hidden.lg\:block { z-index: 0; translate: 0 calc(var(--hero-scroll, 0) * -0.12px); animation: var(--animate-float-slow); }
 [data-purpose="hero-editorial"] .absolute.hidden.lg\:block + .absolute.hidden.lg\:block { animation-delay: 1.5s; }
 
 /* scroll reveals (only when JS enables motion) */
