@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { Heart, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -28,6 +28,23 @@ function Index() {
   const [panel, setPanel] = useState("");
   const [query, setQuery] = useState("");
   const money = (value: number) => `₹${value.toLocaleString("en-IN")}`;
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const root = document.documentElement;
+    const tag = (selector: string, cls: string, stagger = 0) => document.querySelectorAll<HTMLElement>(selector).forEach((el, i) => { el.classList.add(cls); if (stagger) el.style.transitionDelay = `${(i % 4) * stagger}ms`; });
+    tag("section[data-purpose]:not([data-purpose='hero-editorial']) h2", "reveal-up");
+    tag("[data-purpose='editorial-gallery'] .grid > *", "reveal-pop", 90);
+    tag("[data-purpose='klawseye-destinations'] .grid > * img, [data-purpose='in-studio-services'] img", "reveal-mask");
+    tag("[data-product-card], [data-purpose='community-reviews'] .grid > *", "reveal-up", 80);
+    tag("#custom-studio .grid > *, [data-purpose='in-studio-services'] .grid > *", "reveal-up", 120);
+    root.classList.add("motion-on");
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".reveal-up, .reveal-pop, .reveal-mask").forEach(el => io.observe(el));
+    let frame = 0;
+    const onScroll = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => root.style.setProperty("--hero-scroll", String(Math.min(window.scrollY, 800)))); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { io.disconnect(); window.removeEventListener("scroll", onScroll); root.classList.remove("motion-on"); };
+  }, []);
   function add(id: number) {
     const size = sizes[id] ?? (id === 6 || id === 8 || id === 10 ? "Size: M" : "Size: S");
     if (size === "Custom Sizing") { window.open("https://www.instagram.com/klawseye/", "_blank", "noopener,noreferrer"); return; }
