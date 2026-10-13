@@ -86,7 +86,7 @@ export function ReferenceScreen({extra, filter, saved, bagCount, onFilter, onAdd
 <span className="w-2.5 h-2.5 rounded-full bg-brandRose animate-pulse"></span>
 <span className="font-body font-semibold text-xs tracking-normal uppercase text-brandBlue">{"HANDMADE LUXURY PRESS-ONS & LASHES"}</span>
 </div>
-<h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-brandBlue leading-[1.08] tracking-normal">{"\n              KLAWS THAT ARE "}<span className="text-brandRose underline decoration-wavy decoration-brandGingham underline-offset-8">{"UNIQUELY"}</span>{" YOURS\n            "}</h1>
+<h1 className="hero-title font-display text-brandBlue tracking-normal"><span className="block">{"KLAWS THAT"}</span><span className="block">{"ARE "}<span className="hero-scribble text-brandRose">{"UNIQUELY"}</span></span><span className="block hero-indent">{"YOURS ✦"}</span></h1>
 <p className="font-body text-lg sm:text-xl text-copy max-w-xl font-normal leading-relaxed">{"\n              Your vibe. Your vision. Your klaws. Discover salon-quality reusable sets, hand-sculpted 3D art, and custom orders made for every version of you.\n            "}</p>
 
 <div className="flex flex-wrap items-center gap-4 pt-2">
