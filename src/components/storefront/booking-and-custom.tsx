@@ -1,7 +1,8 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { format, isBefore, startOfDay, getDay } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
+import { preparationTime, preparationTimeBusy } from "./products";
 
 const TIMES = ["11:00 AM", "1:00 PM", "3:00 PM", "5:00 PM", "7:00 PM"];
 // Demo availability: deterministic "booked" slots per date until a live schedule is connected.
@@ -11,35 +12,18 @@ function bookedFor(date: Date) {
 }
 const closed = (d: Date) => getDay(d) === 1 || isBefore(d, startOfDay(new Date()));
 
-export function BookingAndCustom() {
+export function BookingCalendar() {
   const [date, setDate] = useState<Date | undefined>();
   const [time, setTime] = useState("");
   const booked = useMemo(() => (date ? bookedFor(date) : []), [date]);
   const fullyBooked = (d: Date) => bookedFor(d).length === TIMES.length;
 
-  const [link, setLink] = useState("");
-  const [notes, setNotes] = useState("");
-  const [preview, setPreview] = useState("");
-  const [fileName, setFileName] = useState("");
-  const [error, setError] = useState("");
-
   function book() {
     if (!date || !time) return;
     window.location.href = `mailto:orders@klawseye.com?subject=${encodeURIComponent("Studio Booking Request")}&body=${encodeURIComponent(`I'd like to book ${format(date, "EEEE, d MMMM yyyy")} at ${time}.`)}`;
   }
-  function submitCustom(e: FormEvent) {
-    e.preventDefault();
-    const url = link.trim();
-    if (url && !/^https?:\/\/\S+$/i.test(url)) return setError("Please add a valid link starting with https://");
-    if (!url && !fileName) return setError("Add an inspiration photo or link.");
-    if (!notes.trim()) return setError("Tell us your requirements.");
-    if (notes.length > 1500) return setError("Please keep instructions under 1500 characters.");
-    setError("");
-    const body = `Inspiration link: ${url || "—"}\nInspiration photo: ${fileName ? `${fileName} (attached)` : "—"}\n\nRequirements:\n${notes.trim()}`;
-    window.location.href = `mailto:orders@klawseye.com?subject=${encodeURIComponent("Custom Nail Set Request")}&body=${encodeURIComponent(body)}`;
-  }
 
-  return <>
+  return (
     <section id="book" className="py-20 bg-gingham-blue border-y-2 border-brandBlue">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="font-display text-3xl md:text-4xl text-brandBlue text-center mb-2">BOOK A STUDIO SLOT</h2>
@@ -62,11 +46,35 @@ export function BookingAndCustom() {
         </div>
       </div>
     </section>
+  );
+}
 
+export function CustomRequestForm({ brief = "", sent = 0 }: { brief?: string; sent?: number }) {
+  const [link, setLink] = useState("");
+  const [notes, setNotes] = useState("");
+  // A design sent from the nail designer replaces the requirements text.
+  useEffect(() => { if (sent) setNotes(`${brief}\n\nSize: `); }, [brief, sent]);
+  const [preview, setPreview] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [error, setError] = useState("");
+
+  function submitCustom(e: FormEvent) {
+    e.preventDefault();
+    const url = link.trim();
+    if (url && !/^https?:\/\/\S+$/i.test(url)) return setError("Please add a valid link starting with https://");
+    if (!url && !fileName) return setError("Add an inspiration photo or link.");
+    if (!notes.trim()) return setError("Tell us your requirements.");
+    if (notes.length > 1500) return setError("Please keep instructions under 1500 characters.");
+    setError("");
+    const body = `Inspiration link: ${url || "—"}\nInspiration photo: ${fileName ? `${fileName} (attached)` : "—"}\n\nRequirements:\n${notes.trim()}`;
+    window.location.href = `mailto:orders@klawseye.com?subject=${encodeURIComponent("Custom Nail Set Request")}&body=${encodeURIComponent(body)}`;
+  }
+
+  return (
     <section id="customise" className="py-20 bg-brandSoftWhite">
       <form onSubmit={submitCustom} className="max-w-2xl mx-auto px-4 space-y-5">
         <h2 className="font-display text-3xl md:text-4xl text-brandBlue text-center">CUSTOMISE YOUR OWN SET</h2>
-        <p className="text-center text-copy">Share your inspiration and we'll handcraft it for you.</p>
+        <p className="text-center text-copy">Share your inspiration and we'll handcraft it for you. Custom sets take {preparationTime} to make ({preparationTimeBusy} in busy periods).</p>
         <label className="block font-semibold text-brandBlue">Upload inspiration
           <input type="file" accept="image/*" className="shop-input mt-2" onChange={e => { const f = e.target.files?.[0]; if (!f) return; if (f.size > 10 * 1024 * 1024) { setError("Image must be under 10MB."); return; } setFileName(f.name); setPreview(URL.createObjectURL(f)); }} />
         </label>
@@ -75,12 +83,12 @@ export function BookingAndCustom() {
           <input type="url" maxLength={500} className="shop-input mt-2" placeholder="https://pin.it/…" value={link} onChange={e => setLink(e.target.value)} />
         </label>
         <label className="block font-semibold text-brandBlue">Your requirements
-          <textarea maxLength={1500} rows={5} className="shop-input mt-2 !rounded-2xl" placeholder="Shape, length, colours, charms, size…" value={notes} onChange={e => setNotes(e.target.value)} />
+          <textarea id="custom-requirements" maxLength={1500} rows={7} className="shop-input mt-2 !rounded-2xl" placeholder="Shape, length, colours, charms, size…" value={notes} onChange={e => setNotes(e.target.value)} />
         </label>
         {error && <p className="text-destructive text-sm">{error}</p>}
         <Button type="submit" className="shop-action w-full">SEND MY DESIGN REQUEST 💅</Button>
         {fileName && <p className="text-xs text-muted-foreground">Your email app will open — please attach {fileName} before sending.</p>}
       </form>
     </section>
-  </>;
+  );
 }
