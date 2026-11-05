@@ -4,7 +4,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, CreditCard, Instagram, Mail, Ma
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { categories, preparationTime } from "./products";
+import { categories, formatPrice, preparationTime, productSlug, shippingCharge, sizingKit, wearsPerSet } from "./products";
 import { shop, useShop } from "./shop-store";
 
 const pages = [
@@ -40,11 +40,13 @@ function useHeaderMorph() {
   return state;
 }
 
-const announcements: { icon: LucideIcon; text: string; link?: { label: string; href: string } }[] = [
-  { icon: Truck, text: "Pan-India shipping on every order" },
-  { icon: Ruler, text: "Free sizing kit with 2+ sets", link: { label: "DM to claim", href: "https://www.instagram.com/klawseye/" } },
+const sizingKitSlug = productSlug(sizingKit);
+
+const announcements: { icon: LucideIcon; text: string; linkLabel?: string }[] = [
+  { icon: Truck, text: `Pan-India shipping from ${formatPrice(shippingCharge)} · express available` },
+  { icon: Ruler, text: `Sizing kits ${formatPrice(sizingKit.price)} · ready to ship`, linkLabel: "Shop kit" },
   { icon: Scissors, text: `Handmade to order in Delhi-NCR · ${preparationTime}` },
-  { icon: Recycle, text: "Salon-grade press-ons, reusable 5+ times" },
+  { icon: Recycle, text: `Salon-grade press-ons, ${wearsPerSet} wears per set` },
   { icon: CreditCard, text: "Prepaid orders only" },
 ];
 
@@ -73,7 +75,7 @@ function AnnouncementBar() {
 <p key={index} className="announce-message" aria-live="polite">
 <Icon aria-hidden="true" className="announce-icon" />
 <span>{current.text}</span>
-{current.link && <a href={current.link.href} target="_blank" rel="noopener noreferrer">{current.link.label}</a>}
+{current.linkLabel && <Link to="/set/$slug" params={{ slug: sizingKitSlug }}>{current.linkLabel}</Link>}
 </p>
 <button type="button" className="announce-arrow" aria-label="Next announcement" onClick={() => setIndex(i => (i + 1) % count)}><ChevronRight aria-hidden="true" /></button>
 </div>
@@ -109,6 +111,7 @@ export function SiteHeader() {
 <ul className="space-y-1">
 <li><SheetClose asChild><Link to="/" hash="shop" className="drawer-link">{"All press-on sets"}</Link></SheetClose></li>
 {categories.map(category => <li key={category.slug}><SheetClose asChild><Link to="/" hash={category.slug} className="drawer-link">{category.name}</Link></SheetClose></li>)}
+<li><SheetClose asChild><Link to="/set/$slug" params={{ slug: sizingKitSlug }} className="drawer-link">{sizingKit.name}</Link></SheetClose></li>
 </ul>
 </div>
 <div>
@@ -133,6 +136,8 @@ export function SiteHeader() {
 <DropdownMenuItem asChild><Link to="/" hash="shop">{"All press-on sets"}</Link></DropdownMenuItem>
 <DropdownMenuSeparator />
 {categories.map(category => <DropdownMenuItem key={category.slug} asChild><Link to="/" hash={category.slug}>{category.name}</Link></DropdownMenuItem>)}
+<DropdownMenuSeparator />
+<DropdownMenuItem asChild><Link to="/set/$slug" params={{ slug: sizingKitSlug }}>{sizingKit.name}</Link></DropdownMenuItem>
 </DropdownMenuContent>
 </DropdownMenu>
 {pages.map(page => <Link key={page.to} to={page.to} className="site-nav-link">{page.label}{"hot" in page && <span className="site-hot-tag">{"HOT"}</span>}</Link>)}

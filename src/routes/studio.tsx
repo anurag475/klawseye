@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { StudioServices } from "@/components/storefront/studio-services";
-import { BookingCalendar } from "@/components/storefront/booking-and-custom";
+import { StudioExperience } from "@/components/storefront/studio-services";
 import { SiteShell } from "@/components/storefront/site-shell";
 
 export const Route = createFileRoute("/studio")({
@@ -12,5 +11,5 @@ export const Route = createFileRoute("/studio")({
 });
 
 function StudioPage() {
-  return <SiteShell><StudioServices /><BookingCalendar /></SiteShell>;
+  return <SiteShell><StudioExperience /></SiteShell>;
 }

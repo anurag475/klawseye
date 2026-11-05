@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Illustration of a press-on nail sizing kit">
+  <rect width="800" height="1000" fill="#f6dfdc"/>
+  <g fill="#fbeeec">
+    <rect x="0" y="0" width="100" height="1000"/><rect x="200" y="0" width="100" height="1000"/><rect x="400" y="0" width="100" height="1000"/><rect x="600" y="0" width="100" height="1000"/>
+  </g>
+  <g transform="rotate(-4 400 500)">
+    <rect x="130" y="210" width="540" height="580" rx="36" fill="#ffffff" stroke="#2f5c7e" stroke-width="10"/>
+    <g fill="#f7c9cf" stroke="#2f5c7e" stroke-width="7">
+      <path d="M196 560v-120c0-40 22-72 44-72s44 32 44 72v120a44 30 0 0 1-88 0z"/>
+      <path d="M302 560V420c0-38 20-68 38-68s38 30 38 68v140a38 28 0 0 1-76 0z"/>
+      <path d="M396 560V410c0-38 20-70 40-70s40 32 40 70v150a40 28 0 0 1-80 0z"/>
+      <path d="M494 560V424c0-36 18-66 36-66s36 30 36 66v136a36 26 0 0 1-72 0z"/>
+      <path d="M584 560V456c0-32 14-58 28-58s28 26 28 58v104a28 22 0 0 1-56 0z" transform="translate(-14 0)"/>
+    </g>
+    <rect x="186" y="630" width="428" height="72" rx="12" fill="#2f5c7e"/>
+    <g stroke="#ffffff" stroke-width="5" stroke-linecap="round">
+      <path d="M216 630v30M254 630v18M292 630v30M330 630v18M368 630v30M406 630v18M444 630v30M482 630v18M520 630v30M558 630v18M586 630v30"/>
+    </g>
+    <text x="400" y="294" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="58" fill="#2f5c7e">SIZING KIT</text>
+  </g>
+</svg>

@@ -32,9 +32,34 @@ export const sizeOptions = [
   "Custom Sizing",
 ] as const;
 
-// Every set is handmade to order; keep this in sync with the FAQ.
-export const preparationTime = "2–3 weeks";
-export const preparationTimeBusy = "up to 4 weeks";
+// Every set is handmade to order; the FAQ, bag and banner all read these.
+export const preparationTime = "2–4 weeks";
+export const preparationTimeBusy = "up to 5 weeks";
+export const prepDisclaimer = "Each set is handmade to order. Please allow 2–4 weeks for preparation before dispatch. During busy periods, this may extend to 5 weeks. Express shipping does not reduce the preparation time.";
+export const wearsPerSet = "6+";
+/** Standard shipping charge, per order. */
+export const shippingCharge = 85;
+
+/** Delivery choices offered at checkout, charged per order. */
+export const shippingOptions = [
+  { id: "standard", label: "Standard Shipping", detail: "Pan India", price: shippingCharge },
+  { id: "express-south", label: "Express Shipping", detail: "South India", price: 450 },
+  { id: "express-north", label: "Express Shipping", detail: "North India & metro cities (commercial areas)", price: 350 },
+] as const;
+
+export type ShippingId = (typeof shippingOptions)[number]["id"];
+
+export const shippingOptionOf = (id: ShippingId) => shippingOptions.find(option => option.id === id)!;
+
+/** Optional add-on offered at checkout. Not a shop product, so it has no page of its own. */
+export const nailRemover = { name: "Pain-Free Press-On Nail Remover", price: 150 };
+
+/** What the order costs once the customer's checkout choices are applied. */
+export function orderCharges(subtotal: number, shipping: ShippingId, withRemover: boolean) {
+  const shippingPrice = shippingOptionOf(shipping).price;
+  const addOnPrice = withRemover ? nailRemover.price : 0;
+  return { shippingPrice, addOnPrice, total: subtotal + addOnPrice + shippingPrice };
+}
 
 export type Product = {
   id: number;
@@ -42,16 +67,25 @@ export type Product = {
   /** Leave out until the studio confirms it; the set then shows "Price soon" and DM-to-order. */
   price?: number;
   image: string;
-  category: CategoryName;
+  /** Handmade sets belong to a category. Accessories such as the sizing kit don't. */
+  category?: CategoryName;
   /** Extra categories the set is also listed under. */
   alsoIn?: CategoryName[];
   description: string;
   badge?: string;
+  /** Real-life photos of the set, shown after the studio photo and its close-up. */
+  realLifeImages?: string[];
+  /** Point the close-up slide zooms into, as a CSS position. Defaults to the centre of the photo. */
+  zoomFocus?: string;
+  /** Kept in stock: no size to choose and no preparation time. */
+  readyToShip?: boolean;
 };
 
 export const formatPrice = (price?: number) => (price === undefined ? "Price soon" : `₹${price.toLocaleString("en-IN")}`);
 
 export const products: Product[] = [
+  { id: 100, name: "SIZING KIT", price: 149, image: "/sets/sizing-kit.svg", description: "Find your perfect fit before you order a set. Ready to ship, so it skips the handmade preparation time.", readyToShip: true },
+
   // Studio sets
   { id: 11, name: "A TOUCH OF MAGIC", price: 1699, image: "/sets/a-touch-of-magic.jpg", category: "MAXIMALIST", description: "Hand-painted sparkles, silver glitter swirls and lily florals in navy, lavender and nude." },
   { id: 18, name: "BLUE NOVA", price: 799, image: "/sets/blue-nova.jpg", category: "Y2K VIBES", description: "Baby blue, glossy black and pearly white almonds with black stars, polka dots, stripes and silver studs." },
@@ -74,3 +108,12 @@ export const products: Product[] = [
   { id: 9, name: "MATCHA JELLY DROPS", price: 1599, image: galleryImages[0]!, category: "EVERYDAY KLAWS", description: "Glassy syrup jelly finish with sculpted clear water droplet accents." },
   { id: 10, name: "MIDNIGHT VELVET", price: 1999, image: galleryImages[1]!, category: "DARK SIDE", description: "Magnetic shifting cat-eye aura with embedded Swarovski micro-crystals." },
 ];
+
+export const sets = products.filter(product => product.category);
+export const sizingKit = products.find(product => product.readyToShip)!;
+
+export const productSlug = (product: Product) => product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+export const findProductBySlug = (slug: string) => products.find(product => productSlug(product) === slug);
+
+const inCategory = (product: Product, name: CategoryName) => product.category === name || Boolean(product.alsoIn?.includes(name));
+export const setsInCategory = (name: CategoryName) => sets.filter(product => inCategory(product, name));

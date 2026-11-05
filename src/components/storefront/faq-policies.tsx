@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { preparationTime, preparationTimeBusy, sizeOptions } from "./products";
+import { formatPrice, preparationTime, preparationTimeBusy, shippingCharge, shippingOptionOf, sizeOptions, sizingKit, wearsPerSet } from "./products";
 
 type Faq = { q: string; a: string[] };
 const groups: { id: string; title: string; items: Faq[] }[] = [
@@ -11,8 +11,8 @@ const groups: { id: string; title: string; items: Faq[] }[] = [
       {
         q: "How long will my set take to make?",
         a: [
-          `Every KLAWSEYE set is handmade to order, so our minimum preparation time is ${preparationTime}.`,
-          `Depending on order volume and how busy the studio is, preparation can take ${preparationTimeBusy}. Please plan around this before placing your order, especially for events.`,
+          `Every KLAWSEYE set is handmade to order, so please allow ${preparationTime} for preparation before dispatch.`,
+          `During busy periods, preparation can take ${preparationTimeBusy}. Please plan around this before placing your order, especially for events.`,
         ],
       },
       {
@@ -33,7 +33,7 @@ const groups: { id: string; title: string; items: Faq[] }[] = [
     title: "PAYMENT & SHIPPING",
     items: [
       { q: "How do I pay?", a: ["We accept prepaid orders only."] },
-      { q: "Where do you ship?", a: ["We ship pan-India. For shipping charges, email orders@klawseye.com before ordering."] },
+      { q: "Where do you ship?", a: [`We ship pan-India. Standard shipping is ${formatPrice(shippingCharge)} per order.`, `Express shipping is ${formatPrice(shippingOptionOf("express-south").price)} for South India and ${formatPrice(shippingOptionOf("express-north").price)} for North India and metro cities (commercial areas). You choose your shipping at checkout.`] },
     ],
   },
   {
@@ -44,11 +44,11 @@ const groups: { id: string; title: string; items: Faq[] }[] = [
         q: "Which size should I choose?",
         a: [
           `Our standard sizes (thumb to pinky): ${sizeOptions.slice(0, 3).join(" · ")}.`,
-          "Not sure? Place a 5-rupee coin next to your bare hand and send us a photo, or order our ₹149 sizing kit. The sizing kit is free with 2 or more sets.",
+          `Not sure? Place a 5-rupee coin next to your bare hand and send us a photo, or order our ${formatPrice(sizingKit.price)} sizing kit. Sizing kits are ready to ship, so they don't follow the ${preparationTime} preparation time.`,
         ],
       },
       { q: "Can I get custom sizing?", a: ["Yes. Choose “Custom Sizing” on any set and DM us on Instagram with your measurements, and we'll make the set to fit you."] },
-      { q: "How many times can I reuse a set?", a: ["Our salon-grade press-ons can be reused 5+ times with gentle removal and the prep kit included with your set."] },
+      { q: "How many times can I reuse a set?", a: [`Each set is expected to last for ${wearsPerSet} wears with gentle removal and the prep kit included with your set.`] },
     ],
   },
   {
@@ -72,7 +72,7 @@ export function FaqPolicies() {
 
 <div className="timeline-card" role="note" aria-label="Preparation timeline">
 <p className="font-display text-brandBlue text-lg">{"✂ HANDMADE TO ORDER"}</p>
-<p className="font-body text-copy">{"Minimum preparation time: "}<strong className="text-brandBlue">{preparationTime}</strong>{`. Depending on order volume, it can take ${preparationTimeBusy}.`}</p>
+<p className="font-body text-copy">{"Preparation time: "}<strong className="text-brandBlue">{preparationTime}</strong>{`. During busy periods, it can take ${preparationTimeBusy}.`}</p>
 <p className="font-body text-sm text-muted-foreground">{"Express shipping speeds up delivery only. It does not speed up preparation."}</p>
 </div>
 

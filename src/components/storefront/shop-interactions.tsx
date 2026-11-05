@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useRef, useState, type CSSProperties, type PointerEvent } from "react";
+import { Link } from "@tanstack/react-router";
 import { Shuffle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { categories, formatPrice, products } from "./products";
-import { shop } from "./shop-store";
+import { categories, formatPrice, productSlug, sets } from "./products";
+import { addLabel, defaultSize, shop, useShop } from "./shop-store";
 
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -86,35 +87,27 @@ export function KlawRoulette() {
   const [spinning, setSpinning] = useState(false);
   const [landed, setLanded] = useState(false);
   const timer = useRef(0);
-  const product = products[index]!;
+  const product = sets[index]!;
+  const size = useShop().sizes[product.id] ?? defaultSize;
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
   const spin = () => {
     if (spinning) return;
-    const target = (index + 1 + Math.floor(Math.random() * (products.length - 1))) % products.length;
+    const target = (index + 1 + Math.floor(Math.random() * (sets.length - 1))) % sets.length;
     setLanded(false);
     if (reducedMotion()) { setIndex(target); setLanded(true); return; }
     setSpinning(true);
-    const steps = products.length * 2 + ((target - index + products.length) % products.length);
+    const steps = sets.length * 2 + ((target - index + sets.length) % sets.length);
     let step = 0;
     const tick = () => {
       step += 1;
-      setIndex(current => (current + 1) % products.length);
+      setIndex(current => (current + 1) % sets.length);
       if (step >= steps) { setSpinning(false); setLanded(true); return; }
       // ease out: each frame waits a little longer than the last
       timer.current = window.setTimeout(tick, 45 + Math.pow(step / steps, 3) * 260);
     };
     tick();
-  };
-
-  const viewSet = () => {
-    const card = document.querySelector<HTMLElement>(`[data-product-card="${product.id}"]`);
-    if (!card) return;
-    card.scrollIntoView({ block: "center", behavior: reducedMotion() ? "auto" : "smooth" });
-    card.classList.remove("is-spotlit");
-    void card.offsetWidth;
-    card.classList.add("is-spotlit");
   };
 
   return (
@@ -126,8 +119,8 @@ export function KlawRoulette() {
 <div className="flex flex-wrap gap-2">
 <Button onClick={spin} disabled={spinning} variant="reference" size="reference" className="klaw-roulette-spin"><Shuffle className="w-4 h-4" />{spinning ? "SPINNING…" : landed ? "SPIN AGAIN" : "SPIN FOR ME"}</Button>
 {landed && <>
-<Button onClick={() => shop.add(product.id)} variant="reference" size="reference" className="klaw-roulette-add">{product.price === undefined ? "DM TO ORDER" : "ADD TO BAG"}</Button>
-<Button onClick={viewSet} variant="reference" size="reference" className="klaw-roulette-view">{"VIEW SET"}</Button>
+<Button onClick={() => shop.add(product.id)} variant="reference" size="reference" className="klaw-roulette-add">{addLabel(product, size)}</Button>
+<Button asChild variant="reference" size="reference" className="klaw-roulette-view"><Link to="/set/$slug" params={{ slug: productSlug(product) }}>{"VIEW SET"}</Link></Button>
 </>}
 </div>
 </div>

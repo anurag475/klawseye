@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } from "react";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { categories, formatPrice, products } from "./products";
+import { formatPrice, products, productSlug } from "./products";
 import { shop } from "./shop-store";
 
 // Studio sets with real photos, in the order they're dealt.
 const featured = [18, 17, 16, 14, 12, 13, 15, 11].map(id => products.find(product => product.id === id)!).filter(Boolean);
-const slugOf = (name: string) => categories.find(category => category.name === name)?.slug ?? "shop";
 
 /** Fanned deck of the studio's newest sets: auto-shuffles, click or swipe to deal one forward. */
 export function HeroDeck() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const drag = useRef<number | null>(null);
+  const swiped = useRef(false);
+  const navigate = useNavigate();
   const count = featured.length;
   const go = (dir: number) => setActive(i => (i + dir + count) % count);
 
@@ -27,7 +29,8 @@ export function HeroDeck() {
     if (drag.current === null) return;
     const dx = event.clientX - drag.current;
     drag.current = null;
-    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+    swiped.current = Math.abs(dx) > 50;
+    if (swiped.current) go(dx < 0 ? 1 : -1);
   };
 
   const current = featured[active]!;
@@ -52,7 +55,12 @@ export function HeroDeck() {
   aria-label={isActive ? `${product.name}, ${formatPrice(product.price)}` : `Show ${product.name}`}
   aria-current={isActive || undefined}
   tabIndex={isActive ? 0 : -1}
-  onClick={() => setActive(index)}
+  onClick={() => {
+    // A swipe ends in a click on the same card; only a real click should open the set.
+    if (swiped.current) { swiped.current = false; return; }
+    if (isActive) void navigate({ to: "/set/$slug", params: { slug: productSlug(product) } });
+    else setActive(index);
+  }}
 >
 <img src={product.image} alt={`${product.name} press-on nail set`} draggable={false} loading={index < 2 ? "eager" : "lazy"} />
 </button>
@@ -63,8 +71,8 @@ export function HeroDeck() {
 <div className="hero-deck-info" aria-live="polite">
 <Button variant="reference" size="reference" className="hero-deck-arrow" aria-label="Previous set" onClick={() => go(-1)}><ChevronLeft className="w-5 h-5" /></Button>
 <div key={current.id} className="hero-deck-label">
-<a href={`#${slugOf(current.category)}`} className="font-display text-brandBlue text-base leading-tight hover:text-brandRose">{current.name}</a>
-<span className="font-body text-xs text-copy">{`${current.category.toLowerCase()} · ${formatPrice(current.price)}`}</span>
+<Link to="/set/$slug" params={{ slug: productSlug(current) }} className="font-display text-brandBlue text-base leading-tight hover:text-brandRose">{current.name}</Link>
+<span className="font-body text-xs text-copy">{`${current.category?.toLowerCase()} · ${formatPrice(current.price)}`}</span>
 </div>
 <Button variant="reference" size="reference" className="hero-deck-add" aria-label={`Add ${current.name} to bag`} onClick={() => shop.add(current.id)}><ShoppingBag className="w-4 h-4" /></Button>
 <Button variant="reference" size="reference" className="hero-deck-arrow" aria-label="Next set" onClick={() => go(1)}><ChevronRight className="w-5 h-5" /></Button>

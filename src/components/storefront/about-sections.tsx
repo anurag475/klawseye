@@ -1,5 +1,9 @@
+import { AboutStory } from "./about-story";
+
 export function AboutSections() {
   return <>
+<AboutStory />
+
 <section className="relative py-24 bg-brandBlush border-y-2 border-brandBlue overflow-hidden text-center" data-purpose="manifesto">
 
 <div className="absolute inset-0 bg-gingham-dense opacity-40"></div>

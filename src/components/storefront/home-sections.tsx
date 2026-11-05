@@ -1,10 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
 import { HeroMedia } from "./hero-media";
 import { EraWord, HeroDeck } from "./hero-deck";
-import { categories, formatPrice, preparationTime, preparationTimeBusy, products, sizeOptions, type Product } from "./products";
-import { defaultSize, shop, useShop } from "./shop-store";
-import { BouncyTitle, CategoryBar, KlawRoulette, tiltHandlers } from "./shop-interactions";
+import { categories, preparationTime, preparationTimeBusy, setsInCategory, sizingKit, wearsPerSet } from "./products";
+import { ProductCard } from "./product-card";
+import { BouncyTitle, CategoryBar, KlawRoulette } from "./shop-interactions";
 
 export function HomeHero() {
   return <>
@@ -28,7 +27,7 @@ export function HomeHero() {
 </div>
 
 <ul className="hero-v2-perks">
-<li><strong>{"5+"}</strong><span>{"wears per set"}</span></li>
+<li><strong>{wearsPerSet}</strong><span>{"wears per set"}</span></li>
 <li><strong>{preparationTime}</strong><span>{"handmade to order"}</span></li>
 <li><strong>{"Pan-India"}</strong><span>{"prepaid shipping"}</span></li>
 </ul>
@@ -59,32 +58,6 @@ export function HomeHero() {
   </>;
 }
 
-function ProductCard({ product }: { product: Product }) {
-  const { saved, sizes } = useShop();
-  const isSaved = saved.includes(product.id);
-  return (
-<article className="product-card bg-card rounded-3xl p-3.5 border-3 border-brandBlue shadow-sticker group" data-product-card={product.id} {...tiltHandlers()}>
-<span aria-hidden="true" className="product-gloss" />
-<div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-brandBlush mb-4">
-<img alt={`${product.name} press-on nail set`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={product.image} loading="lazy" />
-{product.badge && <span className="absolute top-3 left-3 bg-card/95 text-brandBlue text-[11px] font-bold px-2.5 py-1 rounded-full border border-brandBlue">{product.badge}</span>}
-</div>
-<div className="flex justify-between items-start gap-3 mb-1">
-<h4 className="font-display text-base text-brandBlue leading-tight">{product.name}</h4>
-<span className="font-body font-bold text-sm text-brandBlue bg-brandBlush px-2.5 py-0.5 rounded-full whitespace-nowrap">{formatPrice(product.price)}</span>
-</div>
-<p className="text-xs text-muted-foreground mb-4 line-clamp-2 min-h-[2rem]">{product.description}</p>
-<div className="mt-auto flex flex-col sm:flex-row sm:items-center gap-2">
-<select aria-label={`Select nail size for ${product.name}`} className="product-size text-xs py-2 px-3 rounded-full border-2 border-brandBlue bg-card font-medium focus:ring-0 text-brandBlue" value={sizes[product.id] ?? defaultSize} onChange={event => shop.setSize(product.id, event.target.value)}>
-{sizeOptions.map(option => <option key={option} value={option}>{option.replace(/ \(.*\)/, "")}</option>)}
-</select>
-<Button className="flex-1 bg-brandBlue text-primary-foreground font-bold text-xs py-2.5 rounded-full hover:bg-brandRose transition-colors" onClick={() => shop.add(product.id)} variant="reference" size="reference">{product.price === undefined ? "DM TO ORDER" : "ADD TO BAG"}</Button>
-</div>
-<Button variant="reference" size="reference" className="product-heart" aria-label={`Save ${product.name}`} aria-pressed={isSaved} onClick={() => shop.toggleSaved(product.id)}><span key={String(isSaved)} className="product-heart-icon">{isSaved ? "♥" : "♡"}</span>{isSaved && <span aria-hidden="true" className="product-heart-burst" />}</Button>
-</article>
-  );
-}
-
 export function ProductCatalogue() {
   return (
 <section className="py-16 sm:py-20 bg-brandSoftWhite" data-purpose="shop-catalogue" id="shop">
@@ -104,7 +77,7 @@ export function ProductCatalogue() {
 <CategoryBar />
 
 {categories.map(category => {
-  const items = products.filter(product => product.category === category.name || product.alsoIn?.includes(category.name));
+  const items = setsInCategory(category.name);
   return (
 <div key={category.slug} id={category.slug} className="category-block">
 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
@@ -127,6 +100,16 @@ export function ProductCatalogue() {
 </div>
   );
 })}
+
+<div id="sizing-kit" className="category-block">
+<div className="mb-6">
+<h3 className="font-display text-2xl sm:text-3xl text-brandBlue">{"NOT SURE OF YOUR SIZE?"}</h3>
+<p className="font-body text-sm text-copy">{"Sizing kits are ready to ship, so they skip the handmade preparation time."}</p>
+</div>
+<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+<ProductCard product={sizingKit} />
+</div>
+</div>
 </div>
 </section>
   );

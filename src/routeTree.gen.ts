@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as CustomRouteImport } from './routes/custom'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as StudioRouteImport } from './routes/studio'
+import { Route as SetSlugRouteImport } from './routes/set.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const StudioRoute = StudioRouteImport.update({
   path: '/studio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SetSlugRoute = SetSlugRouteImport.update({
+  id: '/set/$slug',
+  path: '/set/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
   '/studio': typeof StudioRoute
+  '/set/$slug': typeof SetSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
   '/studio': typeof StudioRoute
+  '/set/$slug': typeof SetSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,15 @@ export interface FileRoutesById {
   '/custom': typeof CustomRoute
   '/faq': typeof FaqRoute
   '/studio': typeof StudioRoute
+  '/set/$slug': typeof SetSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/custom' | '/faq' | '/studio'
+  fullPaths: '/' | '/about' | '/custom' | '/faq' | '/studio' | '/set/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/custom' | '/faq' | '/studio'
-  id: '__root__' | '/' | '/about' | '/custom' | '/faq' | '/studio'
+  to: '/' | '/about' | '/custom' | '/faq' | '/studio' | '/set/$slug'
+  id:
+    '__root__' | '/' | '/about' | '/custom' | '/faq' | '/studio' | '/set/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +87,7 @@ export interface RootRouteChildren {
   CustomRoute: typeof CustomRoute
   FaqRoute: typeof FaqRoute
   StudioRoute: typeof StudioRoute
+  SetSlugRoute: typeof SetSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +127,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/set/$slug': {
+      id: '/set/$slug'
+      path: '/set/$slug'
+      fullPath: '/set/$slug'
+      preLoaderRoute: typeof SetSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +143,7 @@ const rootRouteChildren: RootRouteChildren = {
   CustomRoute: CustomRoute,
   FaqRoute: FaqRoute,
   StudioRoute: StudioRoute,
+  SetSlugRoute: SetSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
